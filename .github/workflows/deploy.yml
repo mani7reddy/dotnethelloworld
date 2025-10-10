@@ -80,7 +80,7 @@ jobs:
         working-directory: infra
         run: |
           echo "🚀 Initializing Terraform..."
-          terraform init -input=false -reconfigure
+          terraform init -input=false -reconfigure -upgrade
 
           echo "🔍 Checking for existing Terraform locks..."
           terraform force-unlock -force 87baccc5-4b9b-5f6c-d8e0-49866f46602f 2>&1 || echo "✅ No active lock found — continuing."
@@ -152,13 +152,20 @@ jobs:
           ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
       # -----------------------------
-      # 🌍 Output Application URL
+      # 🌍 Output Application URL + Health Check
       # -----------------------------
-      - name: Show App URL
+      - name: Show App URL and Validate Deployment
         working-directory: infra
         run: |
           echo "🌍 Your App is Live at:"
-          terraform output -raw app_url || echo "⚠️ App URL not found — check infra output."
+          APP_URL=$(terraform output -raw app_url || echo "")
+          if [ -z "$APP_URL" ]; then
+            echo "⚠️ App URL not found — check infra output."
+          else
+            echo "$APP_URL"
+            echo "🩺 Running health check..."
+            curl -fsSL "$APP_URL" && echo "✅ Health check passed!" || echo "⚠️ Health check failed!"
+          fi
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
