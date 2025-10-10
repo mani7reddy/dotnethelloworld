@@ -41,13 +41,15 @@ resource "azurerm_container_app" "app" {
       env {
         name  = "ASPNETCORE_ENVIRONMENT"
         value = var.environment
+        name  = "ASPNETCORE_URLS"
+        value = "http://+:8080"
       }
     }
   }
 
   ingress {
     external_enabled = true
-    target_port      = 80
+    target_port      = 8080
     transport        = "auto"
 
     traffic_weight {
