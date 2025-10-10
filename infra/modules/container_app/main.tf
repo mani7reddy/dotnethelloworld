@@ -7,10 +7,10 @@ resource "azurerm_log_analytics_workspace" "law" {
 }
 
 resource "azurerm_container_app_environment" "env" {
-  name                = "env-${var.environment}"
-  location            = var.location
-  resource_group_name = var.rg_name
-  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+  name                         = "env-${var.environment}"
+  location                     = var.location
+  resource_group_name           = var.rg_name
+  log_analytics_workspace_id   = azurerm_log_analytics_workspace.law.id
 
   tags = {
     environment = var.environment
@@ -23,7 +23,6 @@ resource "azurerm_container_app_environment" "env" {
     ]
   }
 }
-
 
 resource "azurerm_container_app" "app" {
   name                        = "dotnethelloworld-${var.environment}"
@@ -38,9 +37,13 @@ resource "azurerm_container_app" "app" {
       cpu    = 0.5
       memory = "1Gi"
 
+      # ✅ Each environment variable in its own block
       env {
         name  = "ASPNETCORE_ENVIRONMENT"
         value = var.environment
+      }
+
+      env {
         name  = "ASPNETCORE_URLS"
         value = "http://+:8080"
       }
