@@ -57,10 +57,10 @@ This repository contains a simple .NET 9 Web API that returns "Hello World" at t
 
 ---
 
-                                               Documentation
+# Documentation
 
 
-Overview:
+## Overview:
 
 This project showcases how to build, containerize, and deploy a simple .NET 9 Web API to Azure Container Apps using modern DevOps practices.
 
@@ -71,14 +71,14 @@ It follows a clean, automated workflow powered by:
 
 The core of the application is a minimal ASP.NET Core API that responds with “Hello World!” when accessed through the root endpoint making it perfect for demonstrating the full containerization and deployment process end-to-end.
 
-Structure:
+## Structure:
 
 Code: The complete source code, Dockerfile, Terraform configuration, and GitHub Actions workflow for this project are available in my public GitHub repository:
 
-Link: https://github.com/mani7reddy/dotnethelloworld
+Repo Link: https://github.com/mani7reddy/dotnethelloworld
 You can clone the repository and explore the full setup, including the infrastructure-as-code and deployment pipeline configuration.
 
-Output:
+## Output:
 I have successfully deployed a .NET 9 Hello World app as a container running in Azure Container Apps. 
 The app is live at https://dotnethelloworld-dev.mangomeadow-5f991997.eastus.azurecontainerapps.io/
 
