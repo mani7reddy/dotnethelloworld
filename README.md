@@ -82,7 +82,6 @@ You can clone the repository and explore the full setup, including the infrastru
 I have successfully deployed a .NET 9 Hello World app as a container running in Azure Container Apps. 
 The app is live at https://dotnethelloworld-dev.mangomeadow-5f991997.eastus.azurecontainerapps.io/
 
-<img width="975" height="550" alt="image" src="https://github.com/user-attachments/assets/4b32c9c9-16a3-454b-bfef-3dce161e52d5" />
 
 <img width="975" height="550" alt="image" src="https://github.com/mani7reddy/dotnethelloworld/blob/main/outputscreenshot.png" />
 
