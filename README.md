@@ -84,4 +84,7 @@ The app is live at https://dotnethelloworld-dev.mangomeadow-5f991997.eastus.azur
 
 <img width="975" height="550" alt="image" src="https://github.com/user-attachments/assets/4b32c9c9-16a3-454b-bfef-3dce161e52d5" />
 
+<img width="975" height="550" alt="image" src="https://github.com/mani7reddy/dotnethelloworld/blob/main/outputscreenshot.png" />
+
+
  
