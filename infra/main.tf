@@ -13,7 +13,7 @@ terraform {
   }
 
   # -----------------------------
-  # 💾 Remote Backend Configuration
+  # Remote Backend Configuration
   # -----------------------------
   backend "azurerm" {
     resource_group_name  = "rg-tfstate"
@@ -24,14 +24,14 @@ terraform {
 }
 
 # -----------------------------
-# 🌐 Azure Provider
+#  Azure Provider
 # -----------------------------
 provider "azurerm" {
   features {}
 }
 
 # ============================================================
-# 🏗️ 1️⃣ Resource Group Module
+#  Resource Group Module
 # ============================================================
 module "rg" {
   source      = "./modules/resource_group"
@@ -40,7 +40,7 @@ module "rg" {
 }
 
 # ============================================================
-# 🚀 2️⃣ Container App Module
+# Container App Module
 # ============================================================
 module "container_app" {
   source       = "./modules/container_app"
