@@ -37,7 +37,7 @@ resource "azurerm_container_app" "app" {
       cpu    = 0.5
       memory = "1Gi"
 
-      # ✅ Each environment variable in its own block
+      # Each environment variable in its own block
       env {
         name  = "ASPNETCORE_ENVIRONMENT"
         value = var.environment
