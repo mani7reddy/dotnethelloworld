@@ -48,7 +48,10 @@ jobs:
       # -----------------------------
       - name: Terraform Init
         working-directory: infra
-        run: terraform init -input=false -reconfigure -upgrade
+        run: |
+          echo "Initializing Terraform backend..."
+          terraform init -input=false -reconfigure -upgrade
+          echo "Terraform initialization complete."
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
@@ -61,10 +64,12 @@ jobs:
       - name: Terraform Destroy
         working-directory: infra
         run: |
+          echo " Destroying Azure Infrastructure for environment: ${{ env.ENVIRONMENT }} ..."
           terraform destroy -lock=false -auto-approve \
             -var="environment=${{ env.ENVIRONMENT }}" \
             -var="location=${{ env.LOCATION }}" \
             -var="image_name=${{ env.IMAGE_NAME }}"
+          echo " Terraform destroy completed successfully."
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
