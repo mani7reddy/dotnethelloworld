@@ -74,15 +74,13 @@ jobs:
           terraform_version: 1.8.5
 
       # -----------------------------
-      # Terraform Init + Safe Unlock
+      # Terraform Init
       # -----------------------------
-      - name: Terraform Init + Safe Unlock
+      - name: Terraform Init
         working-directory: infra
         run: |
           echo "Initializing Terraform..."
           terraform init -input=false -reconfigure -upgrade
-
-         
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
