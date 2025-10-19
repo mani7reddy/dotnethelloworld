@@ -82,9 +82,7 @@ jobs:
           echo "Initializing Terraform..."
           terraform init -input=false -reconfigure -upgrade
 
-          echo "Checking for existing Terraform locks..."
-          terraform force-unlock -force 87baccc5-4b9b-5f6c-d8e0-49866f46602f 2>&1 || echo "No active lock found — continuing."
-        continue-on-error: true
+         
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
