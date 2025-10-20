@@ -80,7 +80,7 @@ You can clone the repository and explore the full setup, including the infrastru
 
 ## Output:
 I have successfully deployed a .NET 9 Hello World app as a container running in Azure Container Apps. 
-The app is live at https://dotnethelloworld-dev.mangomeadow-5f991997.eastus.azurecontainerapps.io/
+The app is live at https:https://dotnethelloworld-dev--5zydkfx.whitefield-559b6a49.eastus.azurecontainerapps.io/
 
 
 <img width="975" height="550" alt="image" src="https://github.com/mani7reddy/dotnethelloworld/blob/main/outputscreenshot.png" />
